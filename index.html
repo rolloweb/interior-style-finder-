@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Style Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Landing Page -->
+        <section id="landing" class="active">
+            <h1>Interior Style Finder</h1>
+            <p>Discover your perfect interior design style in 5 minutes</p>
+            <button onclick="startQuiz()">Start Quiz</button>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="hidden">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="question-container">
+                <!-- Questions will be inserted here by JavaScript -->
+            </div>
+            <div class="navigation">
+                <button id="prev" onclick="previousQuestion()">Previous</button>
+                <button id="next" onclick="nextQuestion()">Next</button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="hidden">
+            <h2>Your Interior Design Style</h2>
+            <div class="style-results">
+                <!-- Results will be inserted here by JavaScript -->
+            </div>
+            <button onclick="restartQuiz()">Take Quiz Again</button>
+        </section>
+    </div>
+
+    <script src="./data/quiz-data.js"></script>
+    <script src="./js/quiz.js"></script>
+    <script src="./js/results.js"></script>
+</body>
+</html>
