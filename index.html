@@ -1,46 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interior Style Finder</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/quiz.css">
+    <title>Interior Style Finder - Funk3000</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/quiz.css">
 </head>
 <body>
     <div class="container">
-        <!-- Landing Page -->
-        <section id="landing" class="active">
-            <h1>Interior Style Finder</h1>
-            <p>Discover your perfect interior design style in 5 minutes</p>
-            <button onclick="startQuiz()">Start Quiz</button>
+        <!-- Landing Section -->
+        <section id="landing-section" class="section">
+            <div class="powered-by landing-header">
+                <span>Powered by</span>
+                <img src="./assets/funk3000-logo.png" alt="Funk3000 Logo">
+            </div>
+            <div class="landing-content">
+                <h1>Interior Style Finder</h1>
+                            <button id="start-quiz-btn" class="btn btn-primary">Start Quiz</button>
+            </div>
         </section>
 
         <!-- Quiz Section -->
-        <section id="quiz" class="hidden">
-            <div class="progress-bar">
-                <div class="progress"></div>
+        <section id="quiz-section" class="section" style="display: none;">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress"></div>
+                </div>
             </div>
+            
             <div class="question-container">
-                <!-- Questions will be inserted here by JavaScript -->
+                <!-- Questions will be dynamically inserted here -->
             </div>
-            <div class="navigation">
-                <button id="prev" onclick="previousQuestion()">Previous</button>
-                <button id="next" onclick="nextQuestion()">Next</button>
+            
+            <div class="navigation-buttons">
+                <button class="btn btn-previous">Previous</button>
+            </div>
+            
+            <div class="powered-by">
+                <span>Powered by</span>
+                <img src="./assets/funk3000-logo.png" alt="Funk3000 Logo">
             </div>
         </section>
 
         <!-- Results Section -->
-        <section id="results" class="hidden">
-            <h2>Your Interior Design Style</h2>
-            <div class="style-results">
-                <!-- Results will be inserted here by JavaScript -->
+        <section id="results-section" class="section" style="display: none;">
+            <div class="results-header">
+                <h2>Your Interior Style Results</h2>
             </div>
-            <button onclick="restartQuiz()">Take Quiz Again</button>
+            
+            <div class="style-results">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+
+            <div class="results-actions">
+                <button onclick="shareResults()" class="btn btn-primary share-button">Share Results</button>
+                <button onclick="restartQuiz()" class="btn btn-secondary restart-button">Take Quiz Again</button>
+            </div>
+            
+            <div class="powered-by">
+                <span>Powered by</span>
+                <img src="./assets/funk3000-logo.png" alt="Funk3000 Logo">
+            </div>
         </section>
     </div>
 
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" style="display: none;">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scripts -->
     <script src="./data/quiz-data.js"></script>
     <script src="./js/quiz.js"></script>
     <script src="./js/results.js"></script>

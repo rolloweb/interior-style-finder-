@@ -4,7 +4,7 @@
     --funk-pink: #ffb8bc;
     --funk-blue: #99d2ed;
     --funk-green: #bddaa0;
-    --background-color: #F5F5F5;
+    --background-color: #fce38b;
     --text-color: #333333;
     --white: #FFFFFF;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -14,156 +14,114 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
     background-color: var(--background-color);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
 }
 
-/* Section Styles */
-section {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-section.active {
-    display: block;
-    opacity: 1;
-}
-
-/* Landing Page */
-.landing-content {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.landing-content h1 {
+/* Header Styles */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
     color: var(--text-color);
 }
 
-.landing-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-/* Quiz Section */
-.quiz-container {
-    background: var(--white);
-    border-radius: 10px;
+/* Section Styles */
+.section {
+    background: #fce38b;
+    border-radius: 15px;
     padding: 30px;
+    margin-bottom: 30px;
     box-shadow: var(--shadow);
-    max-width: 800px;
-    margin: 0 auto;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--funk-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Progress Bar */
 .progress-container {
-    margin-bottom: 30px;
-}
-
-.progress-bar {
     width: 100%;
     height: 10px;
     background-color: #eee;
     border-radius: 5px;
+    margin: 20px 0;
     overflow: hidden;
 }
 
-.progress-bar .progress {
+.progress {
+    width: 0;
     height: 100%;
-    background: linear-gradient(to right, var(--funk-yellow), var(--funk-pink));
+    background-color: var(--funk-blue);
     transition: width 0.3s ease;
 }
 
-/* Navigation */
-.navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
-.nav-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background: var(--funk-blue);
-    color: var(--white);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-}
-
-.nav-button:hover {
-    background: #7fb8d4;
-}
-
-.nav-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
-
 /* Results Section */
-.results-container {
-    background: var(--white);
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: var(--shadow);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 .style-results {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
 
 .style-result {
+    background: #fce38b;
+    border-radius: 15px;
     padding: 20px;
-    border-radius: 10px;
-    background: var(--white);
     box-shadow: var(--shadow);
 }
 
-.style-result.primary {
-    border-left: 4px solid var(--funk-yellow);
-}
-
-.style-result.secondary {
-    border-left: 4px solid var(--funk-pink);
-}
-
 .style-result h3 {
+    font-size: 1.5rem;
     margin-bottom: 15px;
     color: var(--text-color);
 }
 
 .style-result img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
+    height: auto;
+    border-radius: 10px;
     margin-bottom: 15px;
 }
 
@@ -172,43 +130,119 @@ section.active {
 }
 
 .style-details h4 {
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
 .style-details ul {
-    list-style-position: inside;
+    list-style-type: none;
     margin-bottom: 15px;
 }
 
-/* Funk3000 Branding */
-.results-footer {
-    margin-top: 40px;
-    padding: 20px;
-    background: linear-gradient(45deg, var(--funk-yellow), var(--funk-pink));
-    border-radius: 10px;
+.style-details li {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.style-details li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--funk-blue);
+}
+
+/* Primary Result Highlight */
+.style-result.primary {
+    border: 3px solid var(--funk-blue);
+}
+
+/* Landing Section */
+#landing-section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/rooms/modern/modern-livingroom-1.png');
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
     text-align: center;
 }
 
-.results-footer p {
-    color: #333;
-    font-size: 0.9em;
-    margin-bottom: 10px;
+#landing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
-.funk3000-link {
-    display: inline-block;
-    padding: 8px 20px;
-    background: var(--white);
-    border-radius: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: transform 0.3s ease;
+#landing-section h1,
+#landing-section .btn {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+}
+
+#landing-section h1 {
     font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--white);
+    line-height: 1.2;
 }
 
-.funk3000-link:hover {
-    transform: translateY(-2px);
+/* Powered By Styles */
+.powered-by {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #333;
+    opacity: 0.8;
+}
+
+.powered-by img {
+    width: 40px; /* Fixed width for all logos */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Specific positioning for each section if needed */
+#landing-section .powered-by {
+    z-index: 3;
+    color: white;
+}
+
+#quiz-section .powered-by {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+#results-section .powered-by {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Quiz section powered by styles */
+#quiz-section {
+    position: relative;
+    padding-bottom: 60px;
+}
+
+#quiz-section .powered-by img {
+    width: 40px;
+    height: auto;
 }
 
 /* Responsive Design */
@@ -217,8 +251,7 @@ section.active {
         padding: 15px;
     }
 
-    .quiz-container,
-    .results-container {
+    .section {
         padding: 20px;
     }
 
@@ -229,43 +262,177 @@ section.active {
     h2 {
         font-size: 1.5rem;
     }
+
+    .style-results {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Update the image option styles */
-.image-option {
+/* Add all the new CSS styles for the enhanced results page */
+.shopping-recommendations,
+.style-elements,
+.color-palette {
+    /* ... styles as provided above ... */
+}
+
+/* Style Results Enhanced Features */
+.style-elements {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.style-elements h4,
+.color-palette h4,
+.shopping-recommendations h4 {
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.style-elements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.style-elements li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.style-elements li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--funk-blue);
+}
+
+.color-palette {
+    margin-top: 20px;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: var(--shadow);
+}
+
+.color-code {
+    font-size: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.shopping-recommendations {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.retailer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.uk-retailers,
+.us-retailers {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
+}
+
+.retailer-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background: var(--funk-blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.retailer-link:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .retailer-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ... rest of the CSS styles ... */
+
+.browse-more-btn {
+    background-color: #99d2ed;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-    margin: 10px;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: opacity 0.3s ease;
 }
 
-.image-option img {
-    width: 100%;
-    height: auto; /* This preserves aspect ratio */
-    border-radius: 10px;
-    object-fit: contain; /* This ensures the image isn't cropped */
+.browse-more-btn:hover {
+    opacity: 0.9;
 }
 
-/* Grid layout for options */
-.options-container {
+/* Gallery Styles */
+.gallery-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-@media (min-width: 768px) {
-    .options-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
-/* Selected state */
-.image-option.selected {
-    border: 3px solid var(--funk-blue);
-    transform: scale(1.02);
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.back-btn {
+    background-color: #99d2ed;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.back-btn:hover {
+    opacity: 0.9;
 }
