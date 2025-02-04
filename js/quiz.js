@@ -37,16 +37,14 @@ window.addEventListener('load', () => {
             const imagesContainer = document.createElement('div');
             imagesContainer.classList.add('images-container');
             
-            question.options.forEach(option => {
+            question.options.forEach((option, index) => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'option';
-                
-                const img = document.createElement('img');
-                img.src = option.image;
-                img.alt = `${option.style} style room`;
-                img.className = 'quiz-image';
-                
-                optionElement.appendChild(img);
+                optionElement.innerHTML = `
+                    <div class="image-container">
+                        <img src="${option.image}" alt="Option ${index + 1}" class="quiz-image">
+                    </div>
+                `;
                 optionElement.addEventListener('click', () => selectOption(option));
                 
                 imagesContainer.appendChild(optionElement);
@@ -118,7 +116,7 @@ window.addEventListener('load', () => {
                     .slice(0, 3);
 
                 const resultsContainer = document.querySelector('.style-results');
-                const stylesHTML = sortedStyles.map(([style, score], index) => {
+                const resultsHTML = sortedStyles.map(([style, score], index) => {
                     const percentage = Math.round((score / totalScore) * 100);
                     const roomTypes = ['livingroom', 'bedroom', 'kitchen', 'bathroom'];
                     const randomRoomType = roomTypes[Math.floor(Math.random() * roomTypes.length)];
@@ -127,9 +125,9 @@ window.addEventListener('load', () => {
                     return `
                         <div class="style-result">
                             <h3>${capitalizeFirstLetter(style)} (${percentage}%)</h3>
-                            <img src="./images/rooms/${style}/${style}-${randomRoomType}-${randomNumber}.png" 
-                                 alt="${style} ${randomRoomType}" 
-                                 class="style-image" />
+                            <div class="image-container">
+                                <img src="./images/rooms/${style}/${style}-${randomRoomType}-${randomNumber}.png" alt="${style} ${randomRoomType}">
+                            </div>
                             <button class="browse-more-btn" onclick="window.location.href='gallery.html?style=${style}'">Browse More</button>
                             <div class="style-details">
                                 <p>${quizData.styleDescriptions[style]}</p>
@@ -181,7 +179,7 @@ window.addEventListener('load', () => {
                 }).join('');
 
                 if (resultsContainer) {
-                    resultsContainer.innerHTML = stylesHTML;
+                    resultsContainer.innerHTML = resultsHTML;
                 }
 
                 document.getElementById('results-section').style.display = 'block';

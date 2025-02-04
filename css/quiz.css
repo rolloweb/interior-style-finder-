@@ -40,8 +40,6 @@
 
 .quiz-image {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
 }
@@ -121,8 +119,6 @@
 
 .style-result img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 15px;
     cursor: pointer;
@@ -217,10 +213,6 @@
         gap: 15px;
     }
 
-    .quiz-image {
-        height: 250px;
-    }
-
     .style-results {
         grid-template-columns: 1fr;
     }
@@ -236,15 +228,5 @@
 
     .question-container h3 {
         font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .quiz-image {
-        height: 200px;
-    }
-
-    .style-result img {
-        height: 200px;
     }
 }
